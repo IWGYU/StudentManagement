@@ -25,6 +25,7 @@ class Certification:
     def __checkScore(self, score: float):
         if ((self.__cerType == 'ielts') & ((score < 0.0) | (score > 9.0))) | ((self.__cerType == 'toeic') & ((score < 0.0) | (score > 990.0) | (score % 5 != 0))):
             raise ValueError
+    #parser
     def __pasreScore(self, score: float) -> float:
         if self.__cerType == 'toeic':
             score = score / 100

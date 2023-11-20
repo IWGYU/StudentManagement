@@ -2,6 +2,12 @@ from certification import Certification
 
 class Student:
     #constructor
+    
+    #ssn: social security number
+    #idn: identification number
+    #name: full name
+    #adr: address
+    #cerr: certification
     def __init__(self, ssn: int, idn: int, name: str, adr: str, cerr : Certification = None):
         self.__checkSSN(ssn)
         self.__checkIDN(idn)
@@ -59,6 +65,10 @@ def checkScore(score: float):
 
 class StudentC(Student):
     #constructor
+    
+    #litScr = literature score
+    #histScr = history score
+    #geoScr = geography score
     def __init__(self, ssn: int, idn: int, name: str, adr: str, litScr: float, histScr: float, geoScr: float, cerr : Certification = None):
         checkScore(litScr)
         checkScore(histScr)
@@ -86,6 +96,10 @@ class StudentC(Student):
 
 class StudentD(Student):
     #constructor
+    
+    #mathScr = math score
+    #litScr = literature score
+    #engScr = english score
     def __init__(self, ssn: int, idn: int, name: str, adr: str, mathScr: float, litScr: float, engScr: float, cerr : Certification = None):
         checkScore(mathScr)
         checkScore(litScr)
