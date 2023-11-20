@@ -63,6 +63,8 @@ def checkScore(score: float):
     if (score < 0.0) | (score > 10.0):
         raise ValueError
 
+#############################################
+
 class StudentC(Student):
     #constructor
     
@@ -93,6 +95,8 @@ class StudentC(Student):
         return self.__histScr
     def getGeoSrc(self) -> float:
         return self.__geoScr
+
+#############################################
 
 class StudentD(Student):
     #constructor
