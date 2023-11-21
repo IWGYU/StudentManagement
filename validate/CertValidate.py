@@ -11,11 +11,5 @@ class CertValidate:
             raise ValueError
 
     @staticmethod
-    def parseScore(certType: str, score: float) -> float:
-        if certType == 'toeic':
-            score = score / 100
-        return score
-
-    @staticmethod
     def parseCertType(certType: str) -> str:
         return certType.strip().lower()

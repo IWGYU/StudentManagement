@@ -6,18 +6,18 @@ class Certification:
     def __init__(self, certType: str, score: float):
         cert = CertValidate.parseCertType(certType)
         CertValidate.checkCertType(cert)
-        CertValidate.checkScore(cert, score)
         self.__certType = cert
-        self.__score = CertValidate.parseScore(cert, score)
+        CertValidate.checkScore(self.__certType, score)
+        self.__score = score
 
     def setCerType(self, certType: str):
         cert = CertValidate.parseCertType(certType)
         CertValidate.checkCertType(cert)
         self.__certType = cert
 
-    def setScore(self, certType: str, score: float):
-        CertValidate.checkScore(certType, score)
-        self.__score = CertValidate.parseScore(certType, score)
+    def setScore(self, score: float):
+        CertValidate.checkScore(self.__certType, score)
+        self.__score = score
 
     def getCerType(self) -> str:
         return self.__certType
