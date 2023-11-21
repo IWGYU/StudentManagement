@@ -13,10 +13,15 @@ class StudentValidate:
     def checkName(name: str):
         if (len(name) < 5) | (len(name) > 255):
             raise ValueError
+        namec = name.encode().decode().split(" ")
+        for i in namec:
+            if not i.isalpha():
+                raise ValueError
+        
 
     @staticmethod
     def checkAddress(address: str):
-        if (len(address) < 12) | (len(address) > 2048):
+        if (len(address) < 12) | (len(address) > 2048) | (address.isnumeric()):
             raise ValueError
 
     @staticmethod

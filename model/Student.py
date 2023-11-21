@@ -1,15 +1,10 @@
-from Certification import Certification
-from validate.StudentValidate import StudentValidate
+from model.Certification import Certification
 
 
 class Student:
 
     def __init__(self, citizenIdentity: int, candidateNumber: int, name: str, address: str,
                  cert: Certification = None):
-        StudentValidate.checkCitizenIdentity(citizenIdentity)
-        StudentValidate.checkCandidateNumber(candidateNumber)
-        StudentValidate.checkName(name)
-        StudentValidate.checkAddress(address)
         self.__citizenIdentity = citizenIdentity
         self.__candidateNumber = candidateNumber
         self.__name = name
@@ -17,19 +12,15 @@ class Student:
         self.__cert = cert
 
     def setCitizenIdentity(self, citizenIdentity: int):
-        StudentValidate.checkCitizenIdentity(citizenIdentity)
         self.__citizenIdentity = citizenIdentity
 
     def setCandidateNumber(self, candidateNumber: int):
-        StudentValidate.checkCandidateNumber(candidateNumber)
         self.__candidateNumber = candidateNumber
 
     def setName(self, name: str):
-        StudentValidate.checkName(name)
         self.__name = name
 
     def setAddress(self, address: str):
-        StudentValidate.checkAddress(address)
         self.__address = address
 
     def setCert(self, cert: Certification):

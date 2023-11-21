@@ -1,14 +1,13 @@
-from os import system
+import os
 
-from model.Certification import Certification
-from model.Student import Student
-from model.StudentC import StudentC
-
+from controller.StudentController import StudentController
 
 class Menu:
+    controller = StudentController()
+    
     @staticmethod
-    def menuChoice():
-        system('clear')
+    def menuChoice() -> None:
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("""Chức năng:
         1.Thêm mới thí sinh
         2.Tìm kiếm thí sinh theo SBD
@@ -23,29 +22,12 @@ class Menu:
 
     @staticmethod
     def addStudentChoice():
-        system('clear')
+        os.system('cls' if os.name == 'nt' else 'clear')
         print('''
         1. Thí sinh khối C
         2. Thí sinh khối D
         0. Quay lại
         ''')
-
-    def inputStudentInfo(self):
-        si = int(input('Nhập số CCCD: '))
-        sn = int(input('Nhập số SBD: '))
-        name = str(input('Nhập họ và tên: '))
-        address = str(input('Nhập địa chỉ: '))
-        cert = None
-        has_cert = str(input('Có chứng chỉ tiếng Anh? (y/n)').lower().strip())
-        if has_cert == 'y':
-            cert_type = str(input('Nhập loại chứng chỉ (toeic/ielts): '))
-            cert_score = float(input('Nhập số điểm: '))
-            cert = Certification(cert_type, cert_score)
-        elif has_cert == 'n':
-            pass
-        else:
-            raise ValueError
-
 
     # @staticmethod
     # def chooseAddStudentOption():

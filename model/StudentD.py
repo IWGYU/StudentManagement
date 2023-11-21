@@ -1,5 +1,5 @@
 from model.Student import Student
-from Certification import Certification
+from model.Certification import Certification
 from validate.StudentValidate import StudentValidate
 
 
@@ -36,3 +36,6 @@ class StudentD(Student):
 
     def getEnglishScore(self) -> float:
         return self.__englishScore
+    
+    #subject dictionary
+    subDict = dict([(0, 'toán'), (1, 'ngữ văn'), (2, 'tiếng Anh')])
