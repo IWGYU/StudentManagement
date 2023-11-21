@@ -51,7 +51,7 @@ class StudentController:
                 print('Địa chỉ không hợp lệ, vui lòng nhập lại.')
                 continue
         cert = None
-        has_cert = str(input('Có chứng chỉ tiếng Anh? (y/n)').lower().strip())
+        has_cert = str(input('Có chứng chỉ tiếng Anh? (y/n): ').lower().strip())
         while True:
             try:                
                 if has_cert == 'y':
