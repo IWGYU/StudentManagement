@@ -31,10 +31,10 @@ class StudentC(Student):
 
     def getLitSrc(self) -> float:
         return self.__literatureScore
-
+    
     def getHistSrc(self) -> float:
         return self.__historyScore
-        
+    
     def getGeoSrc(self) -> float:
         return self.__geographyScore
     
