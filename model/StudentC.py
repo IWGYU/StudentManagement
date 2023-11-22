@@ -37,5 +37,6 @@ class StudentC(Student):
 
     def getGeoSrc(self) -> float:
         return self.__geographyScore
+        
     #subject dictionary
     subDict = dict([(0, 'ngữ văn'), (1, 'lịch sử'), (2, 'địa lý')])
