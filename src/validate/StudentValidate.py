@@ -25,9 +25,9 @@ class StudentValidate:
     @staticmethod
     def checkAddress(address: str):
         addc = address.split(',')
-        short_prov = ''.join(s[0] for s in addc[1].split())
         if len(addc) != 2:
             raise ValueError
+        short_prov = ''.join(s[0] for s in addc[1].split())
         for i in range(2):
             addc[i] = remove_diacritics(addc[i].strip().replace(' ', '_')).upper()
             if i == 0:
