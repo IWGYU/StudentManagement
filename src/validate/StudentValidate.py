@@ -1,3 +1,6 @@
+from vietnam_provinces import enums
+from ctnx import remove_diacritics
+
 class StudentValidate:
     @staticmethod
     def checkCitizenIdentity(citizenIdentity: int):
@@ -21,7 +24,22 @@ class StudentValidate:
 
     @staticmethod
     def checkAddress(address: str):
-        if (len(address) < 12) | (len(address) > 2048) | (address.isnumeric()):
+        addc = address.split(',')
+        short_prov = ''.join(s[0] for s in addc[1].split())
+        if len(addc) != 2:
+            raise ValueError
+        for i in range(2):
+            addc[i] = remove_diacritics(addc[i].strip().replace(' ', '_')).upper()
+            if i == 0:
+                addc[i] = addc[i] + '_' + short_prov
+        if addc[0] not in enums.districts.DistrictDEnum._member_names_:
+            raise ValueError
+        if addc[1] not in enums.districts.ProvinceDEnum._member_names_:
+            raise ValueError
+
+    @staticmethod
+    def checkForUnique(lst: list, ele):
+        if ele in lst:
             raise ValueError
 
     @staticmethod

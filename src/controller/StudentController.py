@@ -22,6 +22,7 @@ class StudentController:
             try: 
                 si = int(input('Nhập số CCCD: '))
                 StudentValidate.checkCitizenIdentity(si)
+                StudentValidate.checkForUnique(self.__lstC + self.__lstD, si)
                 break
             except ValueError:
                 print('Số CCCD không hợp lệ, vui lòng nhập lại.')
@@ -30,6 +31,7 @@ class StudentController:
             try: 
                 sn = int(input('Nhập SBD: '))
                 StudentValidate.checkCandidateNumber(sn)
+                StudentValidate.checkForUnique(self.__lstC + self.__lstD, sn)
                 break
             except ValueError:
                 print('SBD không hợp lệ, vui lòng nhập lại.')
@@ -44,7 +46,7 @@ class StudentController:
                 continue
         while True:
             try:
-                address = str(input('Nhập địa chỉ: '))
+                address = str(input('Nhập địa chỉ (Theo form sau: [Tên quận/huyện], [Tên tỉnh/thành phố]): '))
                 StudentValidate.checkAddress(address)
                 break
             except ValueError:
