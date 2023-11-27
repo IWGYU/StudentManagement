@@ -1,5 +1,6 @@
 from model.Student import Student
 from model.Certification import Certification
+from validate.StudentValidate import StudentValidate
 
 
 class StudentD(Student):
@@ -10,6 +11,7 @@ class StudentD(Student):
         self.__mathScore = mathScore
         self.__literatureScore = literatureScore
         self.__englishScore = englishScore
+        self.__satScore = StudentValidate.CalculatorSATScore(literatureScore, mathScore, englishScore, cert)
 
     # getter & setter
     def setMathScore(self, mathScore: float):
@@ -29,6 +31,9 @@ class StudentD(Student):
 
     def getEnglishScore(self) -> float:
         return self.__englishScore
+
+    def getSATScore(self) -> float:
+        return self.__satScore
     
     #subject dictionary
     subDict = dict([(0, 'toán'), (1, 'ngữ văn'), (2, 'tiếng Anh')])

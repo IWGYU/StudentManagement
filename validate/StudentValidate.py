@@ -1,5 +1,7 @@
 from vietnam_provinces import enums
 from ctnx import remove_diacritics
+from model.Certification import Certification
+
 
 class StudentValidate:
     @staticmethod
@@ -20,7 +22,6 @@ class StudentValidate:
         for i in namec:
             if not i.isalpha():
                 raise ValueError
-        
 
     @staticmethod
     def checkAddress(address: str):
@@ -46,3 +47,12 @@ class StudentValidate:
     def checkScore(score: float):
         if (score < 0.0) | (score > 10.0):
             raise ValueError
+
+    @staticmethod
+    def CalculatorSATScore(scoreA: float, scoreB: float, scoreC: float, certification: Certification) -> float:
+        satScore = 1.5 * scoreA + scoreB + scoreC
+        if certification.getCerType() == "ielts":
+            satScore += 1.5
+        elif certification.getCerType() == "toeic":
+            satScore += 1.
+        return satScore

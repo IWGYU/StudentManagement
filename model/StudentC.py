@@ -1,7 +1,6 @@
 from model.Student import Student
 from model.Certification import Certification
-
-
+from validate.StudentValidate import StudentValidate
 class StudentC(Student):
     # constructor
     def __init__(self, citizenIdentity: int, candidateNumber: int, name: str, address: str,
@@ -10,6 +9,7 @@ class StudentC(Student):
         self.__literatureScore = literatureScore
         self.__historyScore = historyScore
         self.__geographyScore = geographyScore
+        self.__satScore = StudentValidate.CalculatorSATScore(literatureScore, historyScore, geographyScore, cert)
 
     # getter & setter
     def setLiteratureScore(self, literatureScore: float):
@@ -29,6 +29,9 @@ class StudentC(Student):
 
     def getGeoSrc(self) -> float:
         return self.__geographyScore
+
+    def getSATScore(self) -> float:
+        return self.__satScore
     
     #subject dictionary
     subDict = dict([(0, 'ngữ văn'), (1, 'lịch sử'), (2, 'địa lý')])
