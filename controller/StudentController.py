@@ -321,6 +321,16 @@ class ManageStudent:
                 print("Không tìm thấy thí sinh!")
                 break
 
+    def sortStudentListAscending(self):
+        sortedList = sorted(self.lst, key=lambda student: self.sum(student), reverse=False)
+        for student in sortedList:
+            print(student.__dict__)
+            
+    def sortStudentListDescending(self):
+        sortedList = sorted(self.lst, key=lambda student: self.sum(student), reverse=True)
+        for student in sortedList:
+            print(student.__dict__)
+            
     def checkStudentNotFall(self, lstStudentC: list, lstStudentD: list):
         for stdC in lstStudentC:
             if (stdC.getLitSrc() >= 2) & (stdC.getHistSrc() >= 2) & (stdC.getGeoSrc() >= 2):
