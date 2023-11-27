@@ -1,4 +1,4 @@
-from model.Certification import Certification
+from modelt.Certification import Certification
 
 
 class Student:

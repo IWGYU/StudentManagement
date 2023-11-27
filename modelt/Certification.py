@@ -1,4 +1,4 @@
-from validate.CertValidate import CertValidate
+from validatet.CertValidate import CertValidate
 
 
 class Certification:

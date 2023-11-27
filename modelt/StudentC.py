@@ -1,6 +1,6 @@
-from model.Student import Student
-from model.Certification import Certification
-from validate.StudentValidate import StudentValidate
+from modelt.Student import Student
+from modelt.Certification import Certification
+from validatet.StudentValidate import StudentValidate
 
 
 class StudentC(Student):
@@ -15,6 +15,7 @@ class StudentC(Student):
         self.__historyScore = historyScore
         self.__geographyScore = geographyScore
 
+        self.__satScore = StudentValidate.CalculatorSATScore(literatureScore, historyScore, geographyScore, cert)
     # getter & setter
     def setLiteratureScore(self, literatureScore: float):
         StudentValidate.checkScore(literatureScore)
@@ -27,6 +28,8 @@ class StudentC(Student):
     def setGeographyScore(self, geographyScore: float):
         StudentValidate.checkScore(geographyScore)
         self.__geographyScore = geographyScore
+    def setSATScore(self, SATScore: float):
+        self.__satScore = SATScore
 
     def getLitSrc(self) -> float:
         return self.__literatureScore
@@ -36,6 +39,8 @@ class StudentC(Student):
 
     def getGeoSrc(self) -> float:
         return self.__geographyScore
-    
+
+    def getSATSrc(self) -> float:
+        return self.__satScore
     #subject dictionary
     subDict = dict([(0, 'ngữ văn'), (1, 'lịch sử'), (2, 'địa lý')])
