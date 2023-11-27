@@ -32,7 +32,7 @@ class ManageStudent:
             try:
                 si = int(input('Nhập số CCCD (12 ký tự): '))
                 StudentValidate.checkCitizenIdentity(si)
-                StudentValidate.checkForUnique(self.__lstC + self.__lstD, si)
+                StudentValidate.checkForUniqueID(self.__lstC + self.__lstD, si)
                 break
             except ValueError:
                 print('Số CCCD không hợp lệ, vui lòng nhập lại.')
@@ -41,7 +41,7 @@ class ManageStudent:
             try:
                 sn = int(input('Nhập SBD (8 ký tự): '))
                 StudentValidate.checkCandidateNumber(sn)
-                StudentValidate.checkForUnique(self.__lstC + self.__lstD, sn)
+                StudentValidate.checkForUniqueNumber(self.__lstC + self.__lstD, sn)
                 break
             except ValueError:
                 print('SBD không hợp lệ, vui lòng nhập lại.')
@@ -139,7 +139,7 @@ class ManageStudent:
                         try:
                             citizenIdentity = int(input("Nhập số CCCD muốn sửa: "))
                             StudentValidate.checkCitizenIdentity(citizenIdentity)
-                            StudentValidate.checkForUnique(self.__lstC, citizenIdentity)
+                            StudentValidate.checkForUniqueID(self.__lstC, citizenIdentity)
                             student.setCitizenIdentity(citizenIdentity)
                             break
                         except ValueError:
@@ -152,7 +152,7 @@ class ManageStudent:
                         try:
                             candidateNumber = int(input("Nhập SBD muốn sửa: "))
                             StudentValidate.checkCandidateNumber(candidateNumber)
-                            StudentValidate.checkForUnique(self.__lstC, candidateNumber)
+                            StudentValidate.checkForUniqueNumber(self.__lstC, candidateNumber)
                             student.setCandidateNumber(candidateNumber)
                             break
                         except ValueError:

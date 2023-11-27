@@ -39,7 +39,14 @@ class StudentValidate:
             raise ValueError
 
     @staticmethod
-    def checkForUnique(lst: list, ele):
+    def checkForUniqueID(lst: list, ele):
+        for i in range(len(lst)):
+            lst[i] = lst[i].getCitizenIdentity()
+        if ele in lst:
+            raise ValueError
+    def checkForUniqueNumber(lst: list, ele):
+        for i in range(len(lst)):
+            lst[i] = lst[i].getCandidateNumber()
         if ele in lst:
             raise ValueError
 
