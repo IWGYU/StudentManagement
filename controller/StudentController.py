@@ -276,7 +276,7 @@ class ManageStudent:
 
     def calculateAverageScore(self, citizenIdentity: int):
         StudentValidate.checkCitizenIdentity(citizenIdentity)
-        for student in self.__lstC:
+        for student in self.getListStudentC():
             if student.getCitizenIdentity() == citizenIdentity:
                 studentC: StudentC = self.findStudentCByCitizenIdentity(citizenIdentity)
                 sum = studentC.getLitSrc() + studentC.getHistSrc() + studentC.getGeoSrc()
@@ -286,7 +286,7 @@ class ManageStudent:
 
     def findStudentByCandidateNumber(self, candidateNumber: int):
         StudentValidate.checkCandidateNumber(candidateNumber)
-        for num in (self.__lstC + self.__lstD):
+        for num in self.getListStudent():
             if num.getCandidateNumber() == candidateNumber:
                 print(num.__dict__)
                 break
@@ -296,27 +296,33 @@ class ManageStudent:
 
     def findStudentByCitizenIdentity(self, citizenIdentity: int):
         StudentValidate.checkCitizenIdentity(citizenIdentity)
-        for num in (self.__lstC + self.__lstD):
+        for num in self.getListStudent():
             if num.getCitizenIdentity() == citizenIdentity:
                 return num
+            elif len(self.getListStudent()) > 0:
+                continue
             else:
                 print("Không tìm thấy thí sinh!")
                 break
 
     def findStudentCByCitizenIdentity(self, citizenIdentity: int):
         StudentValidate.checkCitizenIdentity(citizenIdentity)
-        for num in self.__lstC:
+        for num in self.getListStudentC():
             if num.getCitizenIdentity() == citizenIdentity:
                 return num
+            elif len(self.getListStudent()) > 0:
+                continue
             else:
                 print("Không tìm thấy thí sinh!")
                 break
 
     def findStudentDByCitizenIdentity(self, citizenIdentity: int):
         StudentValidate.checkCitizenIdentity(citizenIdentity)
-        for num in self.__lstD:
+        for num in self.getListStudentD():
             if num.getCitizenIdentity() == citizenIdentity:
                 return num
+            elif len(self.getListStudent()) > 0:
+                continue
             else:
                 print("Không tìm thấy thí sinh!")
                 break
@@ -332,23 +338,23 @@ class ManageStudent:
     def listScholarship(self, lstStudentC: list, lstStudentD: list):
         list1 = []
         for stdt in lstStudentC:
-            list1.append({'CitizenIdentity': stdt.getCitizenIdentity,
-                          'SATScore': stdt.getSATScore,
-                          'LitSrc': stdt.getLitSrc,
-                          'B': stdt.getHistSrc, 'C': stdt.getGeoSrc}
+            list1.append({'CitizenIdentity': stdt.getCitizenIdentity(),
+                          'SATScore': stdt.getSATScore(),
+                          'LitSrc': stdt.getLitSrc(),
+                          'B': stdt.getHistSrc(), 'C': stdt.getGeoSrc()}
                          )
         for stdt in lstStudentD:
-            list1.append({'CitizenIdentity': stdt.getCitizenIdentity,
-                          'SATScore': stdt.getSATScore,
-                          'LitSrc': stdt.getLiteratureScore,
-                          'B': stdt.getMathScore, 'C': stdt.getEnglishScore}
+            list1.append({'CitizenIdentity': stdt.getCitizenIdentity(),
+                          'SATScore': stdt.getSATScore(),
+                          'LitSrc': stdt.getLiteratureScore(),
+                          'B': stdt.getMathScore(), 'C': stdt.getEnglishScore()}
                          )
         list3 = sorted(list1, reverse=True, key=lambda x: 'SATScore')
         list2 = []
         for stdt in list3:
-            if (stdt['LitSrc'] > 8.) & (stdt['B'] >= 5.) & (stdt['C'] >= 5.):
+            if (stdt['LitSrc'] > 8.0) & (stdt['B'] >= 5.0) & (stdt['C'] >= 5.0):
                 list2.append(stdt['CitizenIdentity'])
             if len(list2) == 5:
                 break
         for ci in list2:
-            print(self.findStudentByCitizenIdentity(ci))
+            print(self.findStudentByCitizenIdentity(ci).__dict__)

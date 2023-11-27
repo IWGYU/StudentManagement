@@ -11,7 +11,7 @@ class StudentD(Student):
         self.__mathScore = mathScore
         self.__literatureScore = literatureScore
         self.__englishScore = englishScore
-        self.__satScore = StudentValidate.CalculatorSATScore(literatureScore, mathScore, englishScore, cert)
+        # self.__satScore = StudentValidate.CalculatorSATScore(literatureScore, mathScore, englishScore, cert)
 
     # getter & setter
     def setMathScore(self, mathScore: float):
@@ -33,7 +33,7 @@ class StudentD(Student):
         return self.__englishScore
 
     def getSATScore(self) -> float:
-        return self.__satScore
-    
+        return StudentValidate.CalculatorSATScore(self.getMathScore(), self.getLiteratureScore(), self.getEnglishScore(), self.getCert())
+        
     #subject dictionary
     subDict = dict([(0, 'toán'), (1, 'ngữ văn'), (2, 'tiếng Anh')])

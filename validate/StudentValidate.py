@@ -58,7 +58,9 @@ class StudentValidate:
     @staticmethod
     def CalculatorSATScore(scoreA: float, scoreB: float, scoreC: float, certification: Certification) -> float:
         satScore = 1.5 * scoreA + scoreB + scoreC
-        if certification.getCerType() == "ielts":
+        if certification is None:
+            pass
+        elif certification.getCerType() == "ielts":
             satScore += 1.5
         elif certification.getCerType() == "toeic":
             satScore += 1.

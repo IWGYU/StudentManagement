@@ -1,3 +1,4 @@
+import os
 from controller.StudentController import ManageStudent
 from view import Menu
 
@@ -35,5 +36,6 @@ class Main:
                 choice = int(input("Nhập lựa chọn của bạn: "))
             case 8:
                 controller.listScholarship(controller.getListStudentC(),controller.getListStudentD())
+                os.system('pause' if os.name == 'nt' else "/bin/bash -c 'read -s -n 1 -p \"Press any key to continue...\"'")
                 Menu.menuChoice()
                 choice = int(input("Nhập lựa chọn của bạn: "))

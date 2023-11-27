@@ -9,8 +9,6 @@ class StudentC(Student):
         self.__literatureScore = literatureScore
         self.__historyScore = historyScore
         self.__geographyScore = geographyScore
-        self.__satScore = StudentValidate.CalculatorSATScore(literatureScore, historyScore, geographyScore, cert)
-
     # getter & setter
     def setLiteratureScore(self, literatureScore: float):
         self.__literatureScore = literatureScore
@@ -31,7 +29,7 @@ class StudentC(Student):
         return self.__geographyScore
 
     def getSATScore(self) -> float:
-        return self.__satScore
+        return StudentValidate.CalculatorSATScore(self.getLitSrc(), self.getHistSrc(), self.getGeoSrc(), self.getCert())
     
     #subject dictionary
     subDict = dict([(0, 'ngữ văn'), (1, 'lịch sử'), (2, 'địa lý')])
