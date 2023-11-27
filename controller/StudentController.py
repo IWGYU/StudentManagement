@@ -323,12 +323,12 @@ class ManageStudent:
 
     def sortStudentListAscending(self):
         sortedList = sorted(self.lst, key=lambda student: self.sum(student), reverse=False)
-        for student in sortedList:
+        for student in sortStudentListAscending:
             print(student.__dict__)
             
     def sortStudentListDescending(self):
         sortedList = sorted(self.lst, key=lambda student: self.sum(student), reverse=True)
-        for student in sortedList:
+        for student in sortStudentListDescending:
             print(student.__dict__)
             
     def checkStudentNotFall(self, lstStudentC: list, lstStudentD: list):
